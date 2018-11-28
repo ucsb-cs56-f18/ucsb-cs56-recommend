@@ -24,8 +24,32 @@
 </body>
 
 <script>
+    function loadJSON(path, success, error)
+{
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function()
+    {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                if (success)
+                    success(JSON.parse(xhr.responseText));
+            } else {
+                if (error)
+                    error(xhr);
+            }
+        }
+    };
+    xhr.open("GET", path, true);
+    xhr.send();
+}
     function CreateTableFromJSON() {
-        var myBooks = [
+	loadJSON('my-file.json',
+        	function(data) { console.log(data); },
+        	function(xhr) { console.error(xhr); }
+	);	
+        var myBooks = 
+	//dynamically making jSON file stub
+	/*[
             {
                 "Book ID": "1",
                 "Book Name": "Computer Architecture",
@@ -44,7 +68,7 @@
                 "Category": "Science",
                 "Price": "210.40"
             }
-        ]
+        ]*/
 
         // EXTRACT VALUE FOR HTML HEADER. 
         // ('Book ID', 'Book Name', 'Category' and 'Price')
