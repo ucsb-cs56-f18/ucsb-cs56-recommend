@@ -49,7 +49,7 @@
 	);*/	
 	//dynamically making jSON file stub
 	    var myBooks = ${jsonObject};
-	/*
+	    /*
 	[
             {
                 "Book ID": "1",
@@ -70,7 +70,7 @@
                 "Price": "210.40"
             }
         ]
-	*/    
+	    */
 
         // EXTRACT VALUE FOR HTML HEADER. 
         // ('Book ID', 'Book Name', 'Category' and 'Price')
