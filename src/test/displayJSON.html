@@ -21,36 +21,11 @@
 <body>
     <input type="button" onclick="CreateTableFromJSON()" value="Display Recommendations" />
     <p id="showData"></p>
-    <button id ="hellobutton"> Hello</button>
 </body>
 
 <script>
-    function loadJSON(path, success, error)
-{
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function()
-    {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                if (success)
-                    success(JSON.parse(xhr.responseText));
-            } else {
-                if (error)
-                    error(xhr);
-            }
-        }
-    };
-    xhr.open("GET", path, true);
-    xhr.send();
-}
     function CreateTableFromJSON() {
-	//loadJSON('my-file.json',
-        	//function(data) { console.log(data); },
-        	//function(xhr) { console.error(xhr); }
-	//);	
-        var myBooks = 
-	//dynamically making jSON file stub
-	[
+        var myBooks = [
             {
                 "Book ID": "1",
                 "Book Name": "Computer Architecture",
@@ -81,7 +56,7 @@
                 }
             }
         }
-        //col.push("Add");
+        col.push("Add");
 
         // CREATE DYNAMIC TABLE.
         var table = document.createElement("table");
@@ -105,10 +80,12 @@
                 var tabCell = tr.insertCell(-1);
                 tabCell.innerHTML = myBooks[i][col[j]];
             }
-            var tabCell = tr.insertCell(-1);
-            tabCell.innerHTML = "Hello";
-            //var tabCell = tr.insertCell(-1);
-            //tabCell.innerHTML = "<button type="button" onclick = "addNewUser(${song.title}, ${song.artist}, ${song.genre})">Add to playlist</button>";
+            var btn = document.createElement('input');
+            btn.type = "button";
+            btn.value = "Add to Playlist";
+            btn.onclick = addNewUser(myBooks[i][col[1]], myBooks[i][col[2]], myBooks[i][col[3]]);
+            tr.appendChild(btn);
+
         }
 
         // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
