@@ -124,7 +124,8 @@ public class RecSongs
             int length = categoryPaging.getItems().length;
             for (int i=0; i<length; i++)
             {
-                System.out.println(categoryPaging.getItems()[i].getName());
+                System.out.println("name: "+categoryPaging.getItems()[i].getName());
+                System.out.println("id: "+categoryPaging.getItems()[i].getId());
             }
         }
         catch (IOException | SpotifyWebApiException e)

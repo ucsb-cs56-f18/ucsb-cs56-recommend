@@ -21,11 +21,10 @@ public class HelloController {
     	RecSongs spotify = new RecSongs();
         //spotify.getCategories();
         
-    	ArrayList<JSONObject> list = spotify.getSongs("electro");
+    	ArrayList<JSONObject> list = spotify.getSongs("kpop");
     	String song1 = (String) list.get(0).get("song");
         System.out.println(song1);
     	model.addAttribute("name", song1);
-        
         return "index";
     }
 
