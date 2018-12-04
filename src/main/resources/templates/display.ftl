@@ -25,59 +25,11 @@
 </body>
 
 <script>
-    function loadJSON(path, success, error)
-{
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function()
-    {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                if (success)
-                    success(JSON.parse(xhr.responseText));
-            } else {
-                if (error)
-                    error(xhr);
-            }
-        }
-    };
-    xhr.open("GET", path, true);
-    xhr.send();
-}
-    function CreateTableFromJSON() {
-	/*loadJSON('my-file.json',
-        	function(data) { console.log(data); },
-        	function(xhr) { console.error(xhr); }
-	);*/	
-	//dynamically making jSON file stub
-        //var string = ${user};
-        
-        
-	    var myBooks = ${arrObj};
 
-		/*  
-		[
-            {
-                "Book ID": "1",
-                "Book Name": "Computer Architecture",
-                "Category": "Computers",
-                "Price": "125.60"
-            },
-            {
-                "Book ID": "2",
-                "Book Name": "Asp.Net 4 Blue Book",
-                "Category": "Programming",
-                "Price": "56.00"
-            },
-            {
-                "Book ID": "3",
-                "Book Name": "Popular Science",
-                "Category": "Science",
-                "Price": "210.40"
-            }
-        ];
-        */
+    function CreateTableFromJSON() {
         
-	    
+        
+	    var myBooks = ${arrObj};      
 
         // EXTRACT VALUE FOR HTML HEADER. 
         // ('Book ID', 'Book Name', 'Category' and 'Price')
@@ -89,6 +41,8 @@
                 }
             }
         }
+
+        col.push("Add");
 
         // CREATE DYNAMIC TABLE.
         var table = document.createElement("table");
@@ -108,10 +62,28 @@
 
             tr = table.insertRow(-1);
 
-            for (var j = 0; j < col.length; j++) {
+            for (var j = 0; j < col.length-1; j++) {
                 var tabCell = tr.insertCell(-1);
                 tabCell.innerHTML = myBooks[i][col[j]];
             }
+            var btn = document.createElement('input');
+            btn.type = "button";
+            btn.value = "Add to Playlist";
+            console.log(myBooks[i][col[1]]);
+            console.log("dfdsfsd");
+            var songName = myBooks[i][col[1]];
+            var songArtist = myBooks[i][col[2]];
+            var songGenre = myBooks[i][col[3]];
+            btn.onclick = function(myBooks)
+            {
+                var xhr = new XMLHttpRequest();
+                var path = "";
+                path = "/demo/add?song="+songName+"&&artist="+songArtist+"&&genre="+songGenre;
+                xhr.open("GET", path);
+                xhr.send();
+            }
+            tr.appendChild(btn);
+
         }
 
         // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
