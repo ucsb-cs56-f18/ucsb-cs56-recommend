@@ -41,6 +41,8 @@
                 }
             }
         }
+        col.push("Add");
+
 
         col.push("Add");
 
@@ -90,6 +92,14 @@
         var divContainer = document.getElementById("showData");
         divContainer.innerHTML = "";
         divContainer.appendChild(table);
+    }
+
+    function addNewUser(songName, songArtist, songGenre)
+    {
+        var xhr = new XMLHttpRequest();
+        var path = "/demo/add?song="+songName+"&&artist="+songArtist+"&&genre="+songGenre;
+        xhr.open("GET", path);
+        xhr.send();
     }
 </script>
 </html>

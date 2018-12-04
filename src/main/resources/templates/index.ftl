@@ -16,15 +16,14 @@
 
    <select name= "genre">
      <option value="Pop">Pop</option>
-     <option value="Rap">Rap</option>
-     <option value="EDM">EDM</option>
-     <option value="Hip Hop">Hip Hop</option>
-     <option value="Trap">Trap</option>
+     <option value="Hiphop">Hip Hop</option>
+     <option value="Country">Country</option>
+     <option value="Chill">Chill</option>
+     <option value="Dance/Electronic">Dance/Electronic</option>
      <option value="Rock">Rock</option>
      <option value="Soul">Soul</option>
-     <option value="Classical">Classical</option>
-     <option value="Jazz">Jazz</option>
-     <option value="Funk">Funk</option>
+     <option value="Indie">Indie</option>
+     <option value="K-pop">K-pop</option>
    </select>
 
    <input type="submit" value="Submit">

@@ -42,12 +42,19 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
+    <!--
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
 			<version>20180130</version>
 		</dependency>
-
+    -->
+        <dependency>
+            <groupId>se.michaelthelin.spotify</groupId>
+            <artifactId>spotify-web-api-java</artifactId>
+            <version>2.1.1</version>
+        </dependency>
+  
         <!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
@@ -55,14 +62,7 @@
             <version>1.1.1</version>
         </dependency>
 
-		<!--
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-		-->
-		
+
     </dependencies>
 
     <properties>
@@ -88,7 +88,7 @@
 			</processTypes>
 			</configuration>
 			</plugin>
-		
+	
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
